@@ -50,6 +50,10 @@ android {
         create("skeleton") {
         }
 
+        create("batna") {
+
+        }
+
         getByName("debug") {
         }
 
@@ -102,7 +106,8 @@ android {
         }
         create("batna") {
             setDimension("implementation")
-            buildConfigField("boolean", "isBATNA", "true")
+            buildConfigField("boolean", "openvpn3", "true")
+            buildConfigField("boolean", "IS_BATNA", "true")
         }
     }
 
@@ -181,6 +186,22 @@ dependencies {
     dependencies.add("uiImplementation", "androidx.preference:preference:$preferenceVersion")
     dependencies.add("uiImplementation", "androidx.preference:preference-ktx:$preferenceVersion")
     dependencies.add("uiImplementation", "com.google.android.material:material:$materialVersion")
+
+    // Batna modification
+    dependencies.add("batnaImplementation", "androidx.constraintlayout:constraintlayout:1.1.3")
+    dependencies.add("batnaImplementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50")
+    dependencies.add("batnaImplementation", "androidx.cardview:cardview:1.0.0")
+    dependencies.add("batnaImplementation", "androidx.recyclerview:recyclerview:1.0.0")
+    dependencies.add("batnaImplementation", "androidx.appcompat:appcompat:1.1.0")
+    dependencies.add("batnaImplementation", "com.github.PhilJay:MPAndroidChart:v3.1.0")
+    dependencies.add("batnaImplementation", "com.squareup.okhttp3:okhttp:3.2.0")
+    dependencies.add("batnaImplementation", "androidx.core:core:$coreVersion")
+    dependencies.add("batnaImplementation", "androidx.core:core-ktx:$coreVersion")
+    dependencies.add("batnaImplementation", "org.jetbrains.anko:anko-commons:0.10.4")
+    dependencies.add("batnaImplementation", "androidx.fragment:fragment-ktx:1.1.0")
+    dependencies.add("batnaImplementation", "androidx.preference:preference:$preferenceVersion")
+    dependencies.add("batnaImplementation", "androidx.preference:preference-ktx:$preferenceVersion")
+    dependencies.add("batnaImplementation", "com.google.android.material:material:$materialVersion")
 
 
     testImplementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61")
