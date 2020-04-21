@@ -100,6 +100,10 @@ android {
             setDimension("implementation")
             buildConfigField("boolean", "openvpn3", "false")
         }
+        create("batna") {
+            setDimension("implementation")
+            buildConfigField("boolean", "isBATNA", "true")
+        }
     }
 
     compileOptions {
