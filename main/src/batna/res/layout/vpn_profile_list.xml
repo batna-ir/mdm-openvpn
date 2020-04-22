@@ -43,7 +43,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:text="@string/openvpn_is_no_free_vpn" />
+                android:text="@string/openvpn_is_no_free_vpn"
+                android:visibility="gone"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -54,7 +55,8 @@
                 android:id="@+id/add_new_vpn_hint"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="SelectableText" />
+                tools:ignore="SelectableText"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/import_vpn_hint"
@@ -69,7 +71,8 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/faq_hint" />
+                android:text="@string/faq_hint"
+                android:visibility="gone"/>
         </LinearLayout>
 
     </LinearLayout>
