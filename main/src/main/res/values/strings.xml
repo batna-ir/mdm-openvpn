@@ -3,7 +3,7 @@
   ~ Distributed under the GNU GPL v2 with additional terms. For full terms see the file doc/LICENSE.txt
   -->
 <resources>
-    <string name="app">OpenVPN for Android</string>
+    <string name="app">VPN for Android</string>
     <string name="address">Server Address:</string>
     <string name="port">Server Port:</string>
     <string name="location">Location</string>
@@ -220,7 +220,7 @@
     <string name="faq_routing">The Routing and interface configuration is not done via traditional ifconfig/route commands but by using the VPNService API. This results in a different routing configuration than on other OSes. \nThe configuration of the VPN tunnel consists of the IP address and the networks that should be routed over this interface. Especially, no peer partner address or gateway address is needed or required. Special routes to reach the VPN Server (for example added when using redirect-gateway) are not needed either. The application will consequently ignore these settings when importing a configuration. The app ensures with the VPNService API that the connection to the server is not routed through the VPN tunnel.\nThe VPNService API does not allow specifying networks that should not be routed via the VPN. As a workaround the app tries to detect networks that should not be routed over tunnel (e.g. route x.x.x.x y.y.y.y net_gateway) and calculates a set of routes that excludes this routes to emulate the behaviour of other platforms. The log windows shows the configuration of the VPNService upon establishing a connection.\nBehind the scenes: Android 4.4+ does use policy routing. Using route/ifconfig will not show the installed routes. Instead use ip rule, iptables -t mangle -L</string>
     <string name="persisttun_summary">Do not fallback to no VPN connection when OpenVPN is reconnecting.</string>
     <string name="persistent_tun_title">Persistent tun</string>
-    <string name="openvpn_log">OpenVPN Log</string>
+    <string name="openvpn_log">VPN Log</string>
     <string name="import_config">Import OpenVPN configuration</string>
     <string name="battery_consumption_title">Battery consumption</string>
     <string name="baterry_consumption">In my personal tests the main reason for high battery consumption of OpenVPN are the keepalive packets. Most OpenVPN servers have a configuration directive like \'keepalive 10 60\' which causes the client and server to exchange keepalive packets every ten seconds. &lt;p&gt; While these packets are small and do not use much traffic, they keep the mobile radio network busy and increase the energy consumption. (See also &lt;a href="https://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; This keepalive setting cannot be changed on the client. Only the system administrator of the OpenVPN can change the setting. &lt;p&gt; Unfortunately using a keepalive larger than 60 seconds with UDP can cause some NAT gateways to drop the connection due to an inactivity timeout. Using TCP with a long keep alive timeout works, but tunneling TCP over TCP performs extremely poorly on connections with high packet loss. (See &lt;a href="http://sites.inka.de/bigred/devel/tcp-tcp.html"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
@@ -294,7 +294,7 @@
     <string name="vpnbehaviour">VPN behaviour</string>
     <string name="allow_vpn_changes">Allow changes to VPN Profiles</string>
     <string name="hwkeychain">Hardware Keystore:</string>
-    <string name="permission_icon_app">Icon of app trying to use OpenVPN for Android</string>
+    <string name="permission_icon_app">Icon of app trying to use VPN for Android</string>
     <string name="faq_vpndialog43">"Starting with Android 4.3 the VPN confirmation is guarded against \"overlaying apps\". This results in the dialog not reacting to touch input. If you have an app that uses overlays it may cause this behaviour. If you find an offending app contact the author of the app. This problem affect all VPN applications on Android 4.3 and later. See also &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\">Issue 185&lt;a> for additional details"</string>
     <string name="faq_vpndialog43_title">Vpn Confirmation Dialog</string>
     <string name="donatePlayStore">Alternatively you can send me a donation with the Play Store:</string>
@@ -380,7 +380,7 @@
     <string name="ab_persist_tun_title">Persist tun mode</string>
     <string name="version_and_later">%s and later</string>
     <string name="tls_cipher_alert_title">Connections fails with SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure</string>
-    <string name="tls_cipher_alert">Newer OpenVPN for Android versions (0.6.29/March 2015) use a more secure default for the allowed cipher suites (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Unfortunately, omitting the less secure cipher suites and export cipher suites, especially the omission of cipher suites that do not support Perfect Forward Secrecy (Diffie-Hellman) causes some problems. This usually caused by an well-intentioned but poorly executed attempt to strengthen TLS security by setting tls-cipher on the server or some embedded OSes with stripped down SSL (e.g. MikroTik).\nTo solve this problem the problem, set the tls-cipher settings on the server to reasonable default like tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". To work around the problem on the client add the custom option tls-cipher DEFAULT on the Android client.</string>
+    <string name="tls_cipher_alert">Newer VPN for Android versions (0.6.29/March 2015) use a more secure default for the allowed cipher suites (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Unfortunately, omitting the less secure cipher suites and export cipher suites, especially the omission of cipher suites that do not support Perfect Forward Secrecy (Diffie-Hellman) causes some problems. This usually caused by an well-intentioned but poorly executed attempt to strengthen TLS security by setting tls-cipher on the server or some embedded OSes with stripped down SSL (e.g. MikroTik).\nTo solve this problem the problem, set the tls-cipher settings on the server to reasonable default like tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". To work around the problem on the client add the custom option tls-cipher DEFAULT on the Android client.</string>
     <string name="message_no_user_edit">This profile has been added from an external app (%s) and has been marked as not user editable.</string>
     <string name="crl_file">Certificate Revocation List</string>
     <string name="service_restarted">Restarting OpenVPN Service (App crashed probably crashed or killed for memory pressure)</string>
@@ -390,7 +390,7 @@
     <string name="clear_log_on_connect">Clear log on new connection</string>
     <string name="connect_timeout">Connect Timeout</string>
     <string name="no_allowed_app">No allowed app added. Adding ourselves (%s) to have at least one app in the allowed app list to not allow all apps</string>
-    <string name="query_permissions_sdcard">OpenVPN for Android can try to discover the missing file(s) on the sdcard automatically. Tap this message start the permission request.</string>
+    <string name="query_permissions_sdcard">VPN for Android can try to discover the missing file(s) on the sdcard automatically. Tap this message start the permission request.</string>
     <string name="protocol">Protocol</string>
     <string name="enabled_connection_entry">Enabled</string>
     <string name="abi_mismatch">Preferred native ABI precedence of this device (%1$s) and ABI reported by native libraries (%2$s) mismatch</string>
@@ -474,7 +474,7 @@
     <string name="openvpn3_socksproxy">OpenVPN 3 C++ implementation does not support connecting via Socks proxy</string>
     <string name="no_orbotfound">Orbot application cannot be found. Please install Orbot or use manual Socks v5 integration.</string>
     <string name="faq_remote_api_title">Remote API</string>
-    <string name="faq_remote_api">OpenVPN for Android supports two remote APIs, a sophisticated API using AIDL (remoteEXample in the git repository) and a simple one using Intents. &lt;p>Examples using adb shell and the intents. Replace profilname with your profile name&lt;p>&lt;p> adb shell am start-activity -a android.intent.action.MAIN de.blinkt.openvpn/.api.DisconnectVPN&lt;p> adb shell am start-activity -a android.intent.action.MAIN -e de.blinkt.openvpn.api.profileName Blinkt de.blinkt.openvpn/.api.ConnectVPN</string>
+    <string name="faq_remote_api">VPN for Android supports two remote APIs, a sophisticated API using AIDL (remoteEXample in the git repository) and a simple one using Intents. &lt;p>Examples using adb shell and the intents. Replace profilname with your profile name&lt;p>&lt;p> adb shell am start-activity -a android.intent.action.MAIN de.blinkt.openvpn/.api.DisconnectVPN&lt;p> adb shell am start-activity -a android.intent.action.MAIN -e de.blinkt.openvpn.api.profileName Blinkt de.blinkt.openvpn/.api.ConnectVPN</string>
     <string name="enableproxyauth">Enable Proxy Authentication</string>
     <string name="error_orbot_and_proxy_options">Cannot use extra http-proxy-option statement and Orbot integration at the same time</string>
     <string name="info_from_server">Info from server: \'%s\'</string>
@@ -489,7 +489,7 @@
     <string name="configure">Configure</string>
     <string name="extauth_not_configured">External Authneticator not configured</string>
     <string name="faq_killswitch_title">Block non VPN connection (\"Killswitch\")</string>
-    <string name="faq_killswitch">It is often desired to block connections without VPN. Other apps often use markting terms like \"Killswitch\" or \"Seamless tunnel\" for this feature. OpenVPN and this app offer persist-tun, a feature to implement this functionality.&lt;p>The problem with all these methods offered by apps is that they can only provide best effort and are no complete solutions. On boot, app crashing and other corner cases the app cannot ensure that this block of non VPN connection works. Thus giving the user a false sense of security.&lt;p>The &lt;b>only&lt;/b> reliable way to ensure non VPN connections are blocked is to use Android 8.0 or later and use the \"block connections without VPN\" setting that can be found under Settings > Network &amp; Internet > Advanced/VPN > OpenVPN for Android > Enable Always ON VPN, Enable Block Connections without VPN</string>
+    <string name="faq_killswitch">It is often desired to block connections without VPN. Other apps often use markting terms like \"Killswitch\" or \"Seamless tunnel\" for this feature. OpenVPN and this app offer persist-tun, a feature to implement this functionality.&lt;p>The problem with all these methods offered by apps is that they can only provide best effort and are no complete solutions. On boot, app crashing and other corner cases the app cannot ensure that this block of non VPN connection works. Thus giving the user a false sense of security.&lt;p>The &lt;b>only&lt;/b> reliable way to ensure non VPN connections are blocked is to use Android 8.0 or later and use the \"block connections without VPN\" setting that can be found under Settings > Network &amp; Internet > Advanced/VPN > VPN for Android > Enable Always ON VPN, Enable Block Connections without VPN</string>
     <string name="summary_block_address_families">This option instructs Android to not allow protocols (IPv4/IPv6) if the VPN does not set any IPv4 or IPv6 addresses.</string>
     <string name="title_block_address_families">Block IPv6 (or IPv4) if not used by the VPN</string>
     <string name="install_keychain">Install new certificate</string>

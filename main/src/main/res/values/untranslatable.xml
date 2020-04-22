@@ -51,7 +51,7 @@
         <item>50</item>
         <item>-1</item>
     </string-array>
-    <string name="crash_toast_text">OpenVPN for Android crashed, crash reported</string>
+    <string name="crash_toast_text">VPN for Android crashed, crash reported</string>
 
     <!-- These strings should not be visible to the user -->
     <string name="state_user_vpn_permission" translatable="false">Waiting for user permission to use VPN API</string>
