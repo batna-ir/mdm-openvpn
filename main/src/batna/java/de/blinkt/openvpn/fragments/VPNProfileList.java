@@ -320,11 +320,11 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, MENU_ADD_PROFILE, 0, R.string.menu_add_profile)
-                .setIcon(R.drawable.ic_menu_add)
-                .setAlphabeticShortcut('a')
-                .setTitleCondensed(getActivity().getString(R.string.add))
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+//        menu.add(0, MENU_ADD_PROFILE, 0, R.string.menu_add_profile)
+//                .setIcon(R.drawable.ic_menu_add)
+//                .setAlphabeticShortcut('a')
+//                .setTitleCondensed(getActivity().getString(R.string.add))
+//                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         menu.add(0, MENU_IMPORT_PROFILE, 0, R.string.menu_import)
                 .setIcon(R.drawable.ic_menu_import)
@@ -332,17 +332,17 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
                 .setTitleCondensed(getActivity().getString(R.string.menu_import_short))
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
-        menu.add(0, MENU_CHANGE_SORTING, 0, R.string.change_sorting)
-                .setIcon(R.drawable.ic_sort)
-                .setAlphabeticShortcut('s')
-                .setTitleCondensed(getString(R.string.sort))
-                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+//        menu.add(0, MENU_CHANGE_SORTING, 0, R.string.change_sorting)
+//                .setIcon(R.drawable.ic_sort)
+//                .setAlphabeticShortcut('s')
+//                .setTitleCondensed(getString(R.string.sort))
+//                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        menu.add(0, MENU_IMPORT_AS, 0, R.string.import_from_as)
-                .setIcon(R.drawable.ic_menu_import)
-                .setAlphabeticShortcut('p')
-                .setTitleCondensed("Import AS")
-                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+//        menu.add(0, MENU_IMPORT_AS, 0, R.string.import_from_as)
+//                .setIcon(R.drawable.ic_menu_import)
+//                .setAlphabeticShortcut('p')
+//                .setTitleCondensed("Import AS")
+//                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
     }
 

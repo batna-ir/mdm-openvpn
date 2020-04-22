@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
         mPagerAdapter.addTab(R.string.graph, GraphFragment.class);
 
         mPagerAdapter.addTab(R.string.generalsettings, GeneralSettings.class);
-        mPagerAdapter.addTab(R.string.faq, FaqFragment.class);
+//        mPagerAdapter.addTab(R.string.faq, FaqFragment.class);
 
         if (SendDumpFragment.getLastestDump(this) != null) {
             mPagerAdapter.addTab(R.string.crashdump, SendDumpFragment.class);
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
         if (isDirectToTV())
             mPagerAdapter.addTab(R.string.openvpn_log, LogFragment.class);
 
-        mPagerAdapter.addTab(R.string.about, AboutFragment.class);
+//        mPagerAdapter.addTab(R.string.about, AboutFragment.class);
         mPager.setAdapter(mPagerAdapter);
 
         //mTabs =  findViewById(R.id.sliding_tabs);
