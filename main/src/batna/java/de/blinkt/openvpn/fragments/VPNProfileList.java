@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Html;
 import android.text.Html.ImageGetter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,6 +44,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeSet;
 
+import de.blinkt.openvpn.BuildConfig;
 import de.blinkt.openvpn.LaunchVPN;
 import de.blinkt.openvpn.R;
 import de.blinkt.openvpn.VpnProfile;
@@ -55,6 +57,9 @@ import de.blinkt.openvpn.core.PasswordDialogFragment;
 import de.blinkt.openvpn.core.Preferences;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VpnStatus;
+import ir.batna.openvpn.BatnaSharedPreferences;
+import ir.batna.openvpn.FileAccess;
+import ir.batna.openvpn.OnProfileImportListener;
 
 import static de.blinkt.openvpn.core.ConnectionStatus.LEVEL_WAITING_FOR_USER_INPUT;
 import static de.blinkt.openvpn.core.OpenVPNService.DISCONNECT_VPN;
@@ -234,6 +239,23 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
             updateDynamicShortcuts();
         }
         VpnStatus.addStateListener(this);
+        if (BuildConfig.IS_BATNA) {
+            BatnaSharedPreferences batnaSharedPreferences = new BatnaSharedPreferences(getContext());
+            boolean isDefaultProfileLoaded = batnaSharedPreferences.getBooleanValue("isDefaultProfileLoaded");
+            if (!isDefaultProfileLoaded) {
+                try {
+                    FileAccess fileAccess = new FileAccess(getContext(), getContext().getContentResolver(), new OnProfileImportListener() {
+                        @Override
+                        public void onProfileImported(String uuid) {
+                            mArrayadapter.add(ProfileManager.get(getActivity(), uuid));
+                            batnaSharedPreferences.saveBoolean("isDefaultProfileLoaded", true);
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.v("Batna Exception: ", e.getMessage());
+                }
+            }
+        }
     }
 
     @Override

@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
+import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -158,6 +159,7 @@ public class FileSelect extends BaseActivity {
 	}
 
 	public void importFile(String path) {
+		Log.v("batna12 ", "1");
 		File ifile = new File(path);
 		Exception fe = null;
 		try {
@@ -189,6 +191,8 @@ public class FileSelect extends BaseActivity {
 	}
 
 	static private byte[] readBytesFromFile(File file) throws IOException {
+		Log.v("batna12 ", "1");
+
 		InputStream input = new FileInputStream(file);
 
 		long len= file.length();
@@ -212,6 +216,8 @@ public class FileSelect extends BaseActivity {
 
 
 	public void setFile(String path) {
+		Log.v("batna12 ", "1");
+
 		Intent intent = new Intent();
 		intent.putExtra(RESULT_DATA, path);
 		setResult(Activity.RESULT_OK,intent);
@@ -219,6 +225,8 @@ public class FileSelect extends BaseActivity {
 	}
 
 	public String getSelectPath() {
+		Log.v("batna12 ", "1");
+
 		if(VpnProfile.isEmbedded(mData))
 			return mData;
 		else
@@ -226,6 +234,8 @@ public class FileSelect extends BaseActivity {
 	}
 
 	public CharSequence getInlineData() {
+		Log.v("batna12 ", "1");
+
 		if(VpnProfile.isEmbedded(mData))
 			return VpnProfile.getEmbeddedContent(mData);
 		else
@@ -233,6 +243,8 @@ public class FileSelect extends BaseActivity {
 	}
 
 	public void clearData() {
+		Log.v("batna12 ", "1");
+
 		Intent intent = new Intent();
 		intent.putExtra(RESULT_DATA, (String)null);
 		setResult(Activity.RESULT_OK,intent);
@@ -241,6 +253,8 @@ public class FileSelect extends BaseActivity {
 	}
 
 	public void saveInlineData(String fileName, String string) {
+		Log.v("batna12 ", "1");
+
 		Intent intent = new Intent();
 
         if(fileName==null)

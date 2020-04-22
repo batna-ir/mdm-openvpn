@@ -21,6 +21,7 @@ import android.provider.OpenableColumns
 import android.security.KeyChain
 import android.text.TextUtils
 import android.util.Base64
+import android.util.Log
 import android.util.Pair
 import android.view.Menu
 import android.view.MenuItem
@@ -65,6 +66,7 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
         if (v.id == R.id.permssion_hint && Build.VERSION.SDK_INT == Build.VERSION_CODES.M)
             doRequestSDCardPermission(PERMISSION_REQUEST_EMBED_FILES)
 
+        Log.v("batna1 ", "1");
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -73,6 +75,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        Log.v("batna1 ", "2")
+
         // Permission declined, do nothing
         if (grantResults.size == 0 || grantResults[0] == PackageManager.PERMISSION_DENIED)
             return
@@ -98,6 +102,7 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.v("batna1 ", "3");
         if (item.itemId == R.id.cancel) {
             setResult(Activity.RESULT_CANCELED)
             finish()
@@ -110,6 +115,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun userActionSaveProfile(): Boolean {
+        Log.v("batna1 ", "4");
+
         if (mResult == null) {
             log(R.string.import_config_error)
             Toast.makeText(this, R.string.import_config_error, Toast.LENGTH_LONG).show()
@@ -156,6 +163,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, result: Intent?) {
+        Log.v("batna1 ", "5");
+
         if (requestCode == RESULT_INSTALLPKCS12 && resultCode == Activity.RESULT_OK) {
             showCertDialog()
         }
@@ -185,6 +194,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun saveProfile() {
+        Log.v("batna1 ", "6");
+
         val result = Intent()
         val vpl = ProfileManager.getInstance(this)
 
@@ -200,6 +211,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     fun showCertDialog() {
+        Log.v("batna1 ", "7");
+
         try {
 
             KeyChain.choosePrivateKeyAlias(this,
@@ -225,6 +238,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
 
     private fun installPKCS12(): Intent? {
+        Log.v("batna1 ", "8");
+
 
         if (!(findViewById<View>(R.id.importpkcs12) as CheckBox).isChecked) {
             setAuthTypeToEmbeddedPKCS12()
@@ -257,6 +272,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
 
     private fun setAuthTypeToEmbeddedPKCS12() {
+        Log.v("batna1 ", "9");
+
         if (VpnProfile.isEmbedded(mResult!!.mPKCS12Filename)) {
             if (mResult!!.mAuthenticationType == VpnProfile.TYPE_USERPASS_KEYSTORE)
                 mResult!!.mAuthenticationType = VpnProfile.TYPE_USERPASS_PKCS12
@@ -269,6 +286,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
 
     private fun getUniqueProfileName(possibleName: String?): String {
+        Log.v("batna1 ", "10");
+
 
         var i = 0
 
@@ -298,6 +317,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun embedFile(filename: String?, type: Utils.FileType, onlyFindFileAndNullonNotFound: Boolean): String? {
+        Log.v("batna1 ", "11");
+
         if (filename == null)
             return null
 
@@ -320,6 +341,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
 
     private fun getFileDialogInfo(type: Utils.FileType): Pair<Int, String> {
+        Log.v("batna1 ", "12");
+
         var titleRes = 0
         var value: String? = null
         when (type) {
@@ -366,6 +389,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun findFile(filename: String?, fileType: Utils.FileType): File? {
+        Log.v("batna1 ", "13");
+
         val foundfile = findFileRaw(filename)
 
         if (foundfile == null && filename != null && filename != "") {
@@ -377,6 +402,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun addMissingFileDialogs() {
+        Log.v("batna1 ", "14");
+
         for ((key, value) in fileSelectMap) {
             if (value == null)
                 addFileSelectDialog(key)
@@ -384,6 +411,7 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun addFileSelectDialog(type: Utils.FileType?) {
+        Log.v("batna1 ", "15");
 
         val fileDialogInfo = getFileDialogInfo(type!!)
 
@@ -412,11 +440,15 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun getFileLayoutOffset(type: Utils.FileType): Int {
+        Log.v("batna1 ", "16");
+
         return CHOOSE_FILE_OFFSET + type.value
     }
 
 
     private fun findFileRaw(filename: String?): File? {
+        Log.v("batna1 ", "17");
+
         if (filename == null || filename == "")
             return null
 
@@ -478,6 +510,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     internal fun readFileContent(possibleFile: File, base64encode: Boolean): String? {
+        Log.v("batna1 ", "18");
+
         val filedata: ByteArray
         try {
             filedata = readBytesFromFile(possibleFile)
@@ -501,6 +535,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
     @Throws(IOException::class)
     private fun readBytesFromFile(file: File): ByteArray {
+        Log.v("batna1 ", "19");
+
         val input = FileInputStream(file)
 
         val len = file.length()
@@ -523,6 +559,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     internal fun embedFiles(cp: ConfigParser?) {
+        Log.v("batna1 ", "20");
+
         // This where I would like to have a c++ style
         // void embedFile(std::string & option)
 
@@ -550,6 +588,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun updateFileSelectDialogs() {
+        Log.v("batna1 ", "21");
+
         for ((key, value) in fileSelectMap) {
             value?.setData(getFileDialogInfo(key).second, this)
         }
@@ -605,6 +645,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun doImportIntent(intent: Intent) {
+        Log.v("batna1 ", "22");
+
         if (intent.action.equals(IMPORT_PROFILE_DATA)) {
             val data = intent.getStringExtra(Intent.EXTRA_TEXT)
 
@@ -623,6 +665,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun doImportUri(data: Uri) {
+        Log.v("batna1 ", "23");
+
         //log(R.string.import_experimental);
         log(R.string.importing_config, data.toString())
         var possibleName: String? = null
@@ -666,6 +710,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun startImportTask(data: Uri, possibleName: String?, inlineData: String) {
+        Log.v("batna1 ", "24");
+
         mImportTask = object : AsyncTask<Void, Void, Int>() {
             private var mProgress: ProgressBar? = null
 
@@ -724,6 +770,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
     @TargetApi(Build.VERSION_CODES.M)
     private fun checkMarschmallowFileImportError(data: Uri?) {
+        Log.v("batna1 ", "25");
+
         // Permission already granted, not the source of the error
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             return
@@ -741,6 +789,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun log(logmessage: String?) {
+        Log.v("batna1 ", "26");
+
         runOnUiThread {
             val tv = TextView(this@ConfigConverter)
             mLogEntries.add(logmessage)
@@ -755,6 +805,8 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
     }
 
     private fun doImport(inputStream: InputStream) {
+        Log.v("batna1 ", "27");
+
         val cp = ConfigParser()
         try {
             val isr = InputStreamReader(inputStream)
