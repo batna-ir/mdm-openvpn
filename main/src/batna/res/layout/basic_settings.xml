@@ -33,18 +33,21 @@
         <CheckBox
             android:id="@+id/lzo"
             style="@style/item"
-            android:text="@string/useLZO" />
+            android:text="@string/useLZO"
+            android:visibility="gone"/>
 
         <TextView
             style="@style/item"
             android:text="@string/vpn_type"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:visibility="gone"/>
 
         <Spinner
             android:id="@+id/type"
             style="@style/item"
             android:entries="@array/vpn_types"
-            android:prompt="@string/vpn_type" />
+            android:prompt="@string/vpn_type"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:id="@+id/keystore"
@@ -78,7 +81,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:visibility="visible"
             android:visibility="gone" >
 
             <de.blinkt.openvpn.views.FileSelectLayout
@@ -170,8 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:visibility="visible"
-            android:visibility="gone" >
+            tools:visibility="visible">
 
             <TextView
                 style="@style/item"
@@ -207,7 +208,8 @@
                 android:layout_marginLeft="8dip"
                 android:layout_marginRight="8dip"
                 android:text="@string/auth_failed_behaviour"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/auth_retry"
@@ -216,7 +218,7 @@
                 android:layout_marginRight="8dip"
                 android:prompt="@string/auth_failed_behaviour"
                 android:entries="@array/auth_retry_type"
-                />
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -238,7 +240,8 @@
             android:layout_height="wrap_content"
             blinkt:certificate="false"
             blinkt:showClear="true"
-            blinkt:fileTitle="@string/crl_title" />
+            blinkt:fileTitle="@string/crl_title"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </ScrollView>
