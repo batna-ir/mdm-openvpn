@@ -138,19 +138,19 @@ public class VPNPreferences extends BaseActivity {
 
         if (mProfile.mUserEditable) {
             mPagerAdapter.addTab(R.string.basic, Settings_Basic.class);
-            mPagerAdapter.addTab(R.string.server_list, Settings_Connections.class);
-            mPagerAdapter.addTab(R.string.ipdns, Settings_IP.class);
-            mPagerAdapter.addTab(R.string.routing, Settings_Routing.class);
-            mPagerAdapter.addTab(R.string.settings_auth, Settings_Authentication.class);
-
-            mPagerAdapter.addTab(R.string.advanced, Settings_Obscure.class);
+//            mPagerAdapter.addTab(R.string.server_list, Settings_Connections.class);
+//            mPagerAdapter.addTab(R.string.ipdns, Settings_IP.class);
+//            mPagerAdapter.addTab(R.string.routing, Settings_Routing.class);
+//            mPagerAdapter.addTab(R.string.settings_auth, Settings_Authentication.class);
+//
+//            mPagerAdapter.addTab(R.string.advanced, Settings_Obscure.class);
         } else {
             mPagerAdapter.addTab(R.string.basic, Settings_UserEditable.class);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            mPagerAdapter.addTab(R.string.vpn_allowed_apps, Settings_Allowed_Apps.class);
-
-        mPagerAdapter.addTab(R.string.generated_config, ShowConfigFragment.class);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+//            mPagerAdapter.addTab(R.string.vpn_allowed_apps, Settings_Allowed_Apps.class);
+//
+//        mPagerAdapter.addTab(R.string.generated_config, ShowConfigFragment.class);
 
 
         mPager.setAdapter(mPagerAdapter);

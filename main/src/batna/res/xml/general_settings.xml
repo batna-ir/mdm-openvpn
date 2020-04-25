@@ -5,7 +5,8 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/appbehaviour" android:key="app_behaviour">
         <CheckBoxPreference
                 android:defaultValue="true"
@@ -20,7 +21,8 @@
             android:disableDependentsState="true"
             android:summaryOn="Use the C++ OpenVPN library (experimental)"
             android:summaryOff="Use OpenVPN 2.x"
-            android:title="OpenVPN 3 Core"/>
+            android:title="OpenVPN 3 Core"
+            app:isPreferenceVisible="false"/>
 
 
         <de.blinkt.openvpn.views.DefaultVPNListPreference
@@ -38,10 +40,12 @@
         <Preference
                 android:key="clearapi"
                 android:persistent="false"
-                android:title="@string/clear_external_apps"/>
+                android:title="@string/clear_external_apps"
+            app:isPreferenceVisible="false"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/vpnbehaviour">
+    <PreferenceCategory android:title="@string/vpnbehaviour"
+        app:isPreferenceVisible="false">
         <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="usesystemproxy"
@@ -68,7 +72,8 @@
             android:title="@string/osslspeedtest" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/device_specific" android:key="device_hacks">
+    <PreferenceCategory android:title="@string/device_specific" android:key="device_hacks"
+        app:isPreferenceVisible="false">
         <CheckBoxPreference
                 android:defaultValue="false"
                 android:key="useCM9Fix"
