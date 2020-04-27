@@ -105,9 +105,12 @@ android {
             buildConfigField("boolean", "openvpn3", "false")
         }
         create("batna") {
+            versionCode = 9902081
+            versionName = "Ordibehesht99-A"
             setDimension("implementation")
             buildConfigField("boolean", "openvpn3", "true")
             buildConfigField("boolean", "IS_BATNA", "true")
+
         }
     }
 
