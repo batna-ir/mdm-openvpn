@@ -195,6 +195,8 @@ public class VpnProfile implements Serializable, Cloneable {
         boolean useOpenVPN3 = prefs.getBoolean("ovpn3", false);
         if (!BuildConfig.openvpn3)
             useOpenVPN3 = false;
+        // Batna modification: we prefer to user OpenVPN3
+        if (BuildConfig.IS_BATNA) useOpenVPN3 = true;
         return useOpenVPN3;
     }
 

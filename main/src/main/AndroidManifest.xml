@@ -13,7 +13,7 @@
         android:name=".core.ICSOpenVPNApplication"
         android:allowBackup="true"
         android:appCategory="productivity"
-        android:extractNativeLibs="true"
+        android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app"
         android:supportsRtl="true"
